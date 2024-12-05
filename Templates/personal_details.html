@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCntrl",function($scope){
+
+        });
+        </script>
+</head>
+<body ng-app="myApp" ng-controller="myCntrl">
+    <form name="personal" method="post" action="/validate_personal">
+        User ID: <input type="text" id="user_id" name="user_id" ng-model="user_id" required><br>
+        First Name: <input type="text" id="fname" name="fname" required><br>
+        Last Name:<input type="text" id="lname" name="lname"><br>
+        Email:<input type="email" id="email" name="email" required><br>
+        Phone:<input type="number" id="phone" name="phone" ng-model="phone" ng-maxlength="10" ng-minlength="10" required><br>
+        <p ng-show="personal.phone.$error.maxlength || personal.phone.$error.minlength "> Phone Number length must be 10</p>
+        Address : 
+        Door NO:<input type="text" name="dno" required>
+        City:<input type="text" name="city" required><br>
+        District:<input type="text" name="district" required>
+        State :<input type="text" name="state" required>
+        state :<input type="text" name="state_code" required>
+        Pincode :<input type="text" name="pincode" ng-model="pincode" ng-maxlength="6" ng-minlength="6" required><br>
+        <p ng-show="personal.pincode.$error.maxlength || personal.pincode.$error.minlength">Pincode length must be 6</p>
+        <input type="submit" value="Submit"  >
+    </form>
+    
+</body>
+</html>

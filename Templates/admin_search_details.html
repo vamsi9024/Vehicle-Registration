@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCntrl",function($scope){
+        });
+        </script>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 24px; /* medium font size */
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    input[type="text"] {
+        width: 300px;
+        height: 40px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: medium; /* medium font size */
+        margin-right: 10px; /* Add margin between input and button */
+    }
+
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: medium; /* medium font size */
+    }
+
+    h1.ng-show {
+        font-size: medium; /* medium font size */
+        color: red;
+    }
+</style>
+
+
+    
+</head>
+<body ng-app="myApp" ng-controller="myCntrl">
+    <h1>Registration details</h1>
+    <form name="search"  method="post" action="/search_customer">
+    Enter the Registration Number :<input type="text" id="register_no"name="register_no" ng-model="reg_no">
+    <button type="submit">SEARCH</button>
+    </form>
+    <h1 ng-show="{{error2}}">Registration Number is not Exists</h1>
+    <h1 ng-show="{{error1}}">Registration Number is not there</h1><!DOCTYPE html>
+        
+</body>
+</html>

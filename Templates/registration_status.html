@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/registration_status.css">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <h1>Registration Status</h1>
+    <div>
+        <p>owner ID :{{login_user_id}}</p>
+        <!-- <h5>Vehicle Approval Status :{{registration_details[5]}}</h5> -->
+        <!-- <h5>Vehicle Registration Number :{{registration_details[6]}}</h5> -->
+            {% if status=="no_data" %}
+                <h3> data  is not available ,Please Select <span style="color:red">NEW REGISTRATION</span> Button</h3>
+            {% elif status!="no_data" %}
+           
+            <div class="status">
+                Select the Vehicle ID & Vehicle Type:
+                <option value="abc">avlue</option>
+            </div>
+            <br>
+            <table class="details" border="1" style="border-collapse: collapse;"></table>
+            <!-- <p></p>
+            <p>Vehicle Owner Name :{{registration_details[1]}} {{registration_details[2]}}</p>
+                <p>Vehicle Type :{{registration_details[3]}} Wheeler, {{registration_details[4]}}</p>
+                <p>Registration Status :Pending</p>
+            {% else %}
+                <p>Vehicle Owner Name :{{registration_details[1]}} {{registration_details[2]}}</p>
+                <p>Vehicle Type :{{registration_details[3]}} Wheeler, {{registration_details[4]}}</p>
+                <h5>Registration Status :Completed</h5>
+                <h5>Registration Number :{{registration_details[0]}}</h5>
+            {% endif %} -->
+        </center>
+    </div>
+    
+    <script>
+        // Fetch users from the server and display them
+        fetch('/status')
+            .then(response => response.text())
+            .then(htmlContent => {
+                const options_in_dropdown  = document.querySelector('.status');
+                options_in_dropdown.innerHTML = htmlContent;
+                console.log("krishna")
+                selectedValue=document.querySelector('.drop').value
+                console.log("vv ",selectedValue)
+                start(selectedValue)
+                update_details();
+                
+            })
+            .catch(error => console.error('Error fetching users:', error));
+
+            function start(selectedValue)
+            {
+            fetch(`/update_details/${selectedValue}`)
+            .then(response => response.text())
+            .then(htmlContent => {
+                const status_details = document.querySelector('.details');
+                status_details.innerHTML = htmlContent;
+            })
+            .catch(error => console.error('Error fetching users:', error));
+            }
+
+        function update_details(){
+            document.querySelector("#dropdown").addEventListener("change", function() {
+            console.log("vmasi")
+            var selectedValue = this.value;
+            console.log(selectedValue)
+            start(selectedValue)
+            
+            })
+        
+        }
+       
+            
+    </script>
+    
+</body>
+</html>

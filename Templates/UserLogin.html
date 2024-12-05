@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="static/UserLogin.css">
+    <title>User Login</title>
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+    </script>
+    <script>
+        var app=angular.module("myApp",[]);
+        app.controller("myCntrl",function($scope){
+
+        }) ;
+
+        
+    </script>
+</head>
+<body ng-app="myApp">
+    <div class="main" ng-app="myApp" ng-controller="myCntrl">
+        <h1>User Login</h1>
+        <form action="/validate_login_user" method="post">
+        <div class="div1">
+            <div class="div2">
+                <span>User ID</span>
+                <input type='text' placeholder='Enter User Id' id="login_user_id" name="login_user_id" required>
+            </div>
+            <div class="div3">
+                <span>User Password</span>
+                <input type='text' placeholder='Enter Password' id="login_user_password" name="login_user_password" required>
+            </div><br/>
+            <div class="div4">Don't have an account? <span><a href="/UserRegister">Click here</a></span></div>
+            <span ng-show="{{error1}}" style="color:red">&nbsp;&nbsp; User id not exists</span>
+            <span ng-show="{{error2}}" style="color:red">&nbsp;&nbsp;Please check the Password</span>
+            <br/>
+            <button>Login</button>
+        </div>
+    </form>
+    </div>
+</body>
+</html>

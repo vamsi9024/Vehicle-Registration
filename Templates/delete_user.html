@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="static/delete_user.css">
+    <title>Document</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCntrl",function($scope){
+            $scope.delete_use=function()
+            {
+            if(!$scope.register_no){
+                alert("please enter the registration number")
+             }
+                // console.log("Inside delete function");
+               else{
+                if(confirm("Are you sure want to delete"))
+                {
+                if('{{data}}'=='false') {
+                    alert("Register Number is error")
+                }
+                else{
+                  alert("delete successfull"+$register_no)
+                }
+            }
+            else{
+                $scope.register_no="";
+            }
+            }
+            }
+            
+        });
+        </script>
+</head>
+<body ng-app="myApp" ng-controller="myCntrl">
+    <h1>Delete the User Details</h1>
+    <form name="delete"  method="post" action="/delete_user">
+        Enter the Registration Number :<input type="text" id="register_no" name="register_no" ng-model="register_no" ng-blur="delete_use()">
+        <button type="submit">delete</button>
+        </form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="static/UserRegister.css">
+    <title>User Login</title>
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+    </script>
+    <script>
+        var app=angular.module("myApp",[]);
+        app.controller("myCtrl",function($scope){
+            $scope.user_id="092"
+        });
+    </script>
+</head>
+<body ng-app="myApp">
+    <div class="main" ng-app="myApp" ng-controller="myCntrl">
+       
+        <h1>New User Register</h1>
+        <form action="/validate_user_signup" method="post">
+        <div class="div1">
+            <div class="div2">
+                <span>User Name</span>
+                <input type='text' placeholder='Enter your Name' name="user_name" ng-model="user_name" id="user_name" required> 
+            </div>
+            <div class="div3">
+                <span>Choose User ID</span>
+                <input type='text' placeholder='Enter an User Id' name="user_id" ng-model="user_id" id="user_id" required> 
+            </div>
+            <div class="div4">
+                <span> Choose User Password</span>
+                <input type='text' placeholder='Enter a Password' name="user_password" ng-model="user_password" id="user_password" required>
+            </div>
+            <div class="div5">
+                <span>Phone Number</span>
+                <input type='text' placeholder='Enter your Phone Number' name="user_phone" ng-model="user_phone" id="user_phone" required> 
+            </div>
+            <div class="div6">Already have an account? <span><a href="/UserLogin">Click here</a></span></div>
+            {% if error_at_id=="true" %}
+            <span ng-show="{{error_at_id}}">user id Already exists {{user_id}}</span>
+            {% endif %}
+            <br/>
+            <button >Register</button>
+           
+        </div>
+    </form>
+    </div>
+</body>
+</html>

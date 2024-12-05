@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/admin_edit_approval.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCntrl",function($scope){
+
+        });
+    </script>       
+
+</head>
+<body>
+    
+    <h1>EDIT DETAILS </h1>
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+            <th>USER ID</th>
+            <th>USER NAME</th>
+            <th>VEHICLE TYPE</th>
+            <th>REGISTRATION NUMBER</th>
+            <th>MORE DETAILS</th>
+        </tr>
+        
+            {%for x in new_details%}
+                {% for y in old_vehicle_details %}
+                    {% if x[0]==y[0] %}
+                    <tr>
+                        <td>{{x[0]}}</td>
+                        <td>{{x[1]+" "+x[2]}}</td>
+                        <td>{{y[1]}} wheeler</td>
+                        <td>{{y[4]}}</td>
+                        <td><a href="/edit_approval/{{x[0]}}">MORE DETAILS</a></td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endfor%}
+    </table>
+</body>
+</html>

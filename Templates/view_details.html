@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/view_details.css">
+    <title>Document</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCntrl",function($scope){
+            $scope.display=false;
+            $scope.generate=function(){
+                var id='{{admin_id}}'
+        // if(id<10)
+        //     var num="0"+id
+        // else
+            var num=id
+        const c="ABCDEFGHIKLMNOPQRSTUVWXYZ"
+        const n="0123456789"
+        for(let i=0;i<2;i++){
+            num+=c.charAt(Math.floor(Math.random()*26))
+        }
+        for(let i=0;i<4;i++){
+            num+=n.charAt(Math.floor(Math.random()*10))
+        }
+        $scope.number=num;
+        $scope.display=true;
+        document.getElementById('register_no').innerHTML=$scope.number
+    }
+    //let n=document.getElementById("register_no").value;
+    //console.log(n);
+        $scope.print=function(){
+            window.print();
+        }
+        check()
+        document.getElementById("dropdown").addEventListener("change", function() {
+        var selectedValue = this.value;
+        //window.location.href='/vehicle_details/'+selectedValue;
+        console.log("Selected value: " + selectedValue);
+        console.log("{{vehicle_ids}}");
+        selectedValue=selectedValue.split(',')
+        document.getElementById("vehicle_id").innerHTML=selectedValue[0]
+        document.getElementById("vehicle_type").innerHTML=selectedValue[1]+" Wheller"
+        document.getElementById("model_name").innerHTML=selectedValue[2]
+        document.getElementById("manufacture_year").innerHTML=selectedValue[3]
+        document.getElementById("registration_status").innerHTML=selectedValue[4]
+        check()
+    
+        
+  
+        })
+        $scope.submit=function(){
+            reg_no=document.getElementById("register_no").value
+            vehicle_id=document.getElementById("vehicle_id").textContent
+            console.log(reg_no," ",vehicle_id)
+            if(reg_no!=""){
+                window.location.href="/validate_registration/"+reg_no+"/"+vehicle_id
+               // window.location.href= `/validate_registration?reg_number=${reg_no}&vehicle_id=${vehicle_id}`
+            }
+            else{
+                alert("Please Enter the Registraion Number ")
+            }
+           
+        }
+
+        function check(){
+        vehicle_id=document.getElementById("vehicle_id").textContent
+        console.log("vv ",vehicle_id)
+        fetch(`/check_register/${vehicle_id}`)
+            .then(response => response.text())
+            .then(htmlContent => {
+                const status_details = document.querySelector('.check_register');
+                status_details.innerHTML = htmlContent;
+            })
+            .catch(error => console.error('Error fetching users:', error));
+        }
+       
+        
+  // Add your action code here
+        });
+        function callfunction(){
+            vehicle_id=document.getElementById("vehicle_id").textContent
+            window.location.href="/download/{{data[0]}}/"+vehicle_id
+        }
+        
+       
+     </script>
+    
+
+</head>
+<body ng-app="myApp" ng-controller="myCntrl">
+    <center>
+    <h1>USER DETAILS</h1>
+{% if no_data=="true" %}
+        <h1> Data in not present Select New Registration</h1>
+        <button><a href="/go_back_user_home">GO BACK</a></button>
+{% else %}
+<table border="1" style="border-collapse: collapse;" >
+        <tr><td>user ID :</td><td>{{data[0]}}</td></tr>
+        <tr><td>Name :</td><td>{{data[1]}} {{data[2]}}</td></tr>
+        <tr><td>Email:</td><td>{{data[3]}}</td></tr>
+        <tr><td>Phone Number:</td><td>{{data[4]}}</td></tr>
+        <tr><td>Address:</td><td>{{data[5]}},{{data[6]}},{{data[7]}},{{data[8]}},{{data[9]}},{{data[10]}}</td></tr>
+        <tr><td> User Documents :</td><td><a href="/download/{{data[0]}}/0">Documents</a></td></tr>
+        <tr><td><h4>Vehicle Details</h4></td> 
+           <td id="drop">Select Vehicle type :<select ng-model="select_vehicle_id" id="dropdown">
+                {% for i in vehicle_ids %}
+                <option value="{{i[0]}},{{i[1]}},{{i[2]}},{{i[3]}},{{i[4]}}">{{i[0]}},{{i[2]}}</option>
+                {% endfor %}
+                </select>
+            </td> 
+       
+        </tr>
+        <tr><td>Vehicle ID:</td><td id="vehicle_id" name="vehicle_id">{{data[15]}} </td></tr>
+        <tr><td>Vehicle Type:</td><td id="vehicle_type">{{data[11]}} Wheeler </td></tr>
+        <tr><td>Vehicle Model:</td><td id="model_name">{{data[12]}}</td></tr>
+        <tr><td>Manufacture Year:</td><td id="manufacture_year">{{data[13]}}</td></tr>
+        <tr><td>Registration Status:</td><td id="registration_status">{{data[14]}}</td></tr>
+        <tr><td> User Documents :</td><td><button class="docdown" onclick="callfunction()">Documents</button></td></tr>
+        <tr><td>Vehicle Details:</td><td></td></tr>
+        <!-- <button onclick="callfunction()">documents</a> -->
+</table>
+    {% if u=="admin" and data[14]=="no" %}
+        <div id="admin_view">
+        <button ng-click="generate()">GENERATE REGISTRATION NUMBER</button>
+        <h2 class="regnum"ng-show="display" >Registration Number is : {{st_code}}<span ng-bind="number"></span></h2><br>
+        Enter the Registration Number :<input type="text" id="register_no" name="register_no" required>
+        <button ng-click="submit()">SUBMIT</button>
+       
+        </div>
+   
+    {% endif %}
+    <div class="check_register"></div> 
+   
+{% endif %}   
+<button id="print" ng-click="print()">PRINT</button>
+
+    
+</center>
+
+
+</body>
+</html>

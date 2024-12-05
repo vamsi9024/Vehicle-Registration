@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <!-- <link rel='stylesheet' href="static/personal_details.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='personal_details.css') }}">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCntrl",function($scope){
+        document.getElementById("fname").value="{{edit_result[1]}}"
+        console.log("{{edit_result[1]}}")
+        var lists=["fname","lname","email","phone","user_id","dno","city","district","state","state_code","pincode","user_id","proof","document_id","user_id","vehicle_type","model_name","manufacture_year"]
+          document.getElementById("fname").value="{{edit_result[1]}}"
+          document.getElementById("lname").value="{{edit_result[2]}}"
+          document.getElementById("email").value="{{edit_result[3]}}"
+          document.getElementById("phone").innerHTML="{{edit_result[4]}}"
+          document.getElementById("dno").value="{{edit_result[6]}}"
+          document.getElementById("city").value="{{edit_result[7]}}"
+          document.getElementById("district").value="{{edit_result[8]}}"
+          document.getElementById("state").value="{{edit_result[9]}}"
+          document.getElementById("state_code").value="{{edit_result[10]}}"
+          document.getElementById("pincode").value="{{edit_result[11]}}"
+          document.getElementById("proof").value="{{edit_result[13]}}"
+          document.getElementById("document_id").value="{{edit_result[14]}}"
+          document.getElementById("vehicle_type").value="{{edit_result[16]}}"
+        
+         
+          $scope.checked=funtion()
+          {
+            alert("are sure want to edit")
+          }
+    
+        });
+        
+        </script>
+        <style>
+            #show{
+                color:initial;
+                font-size:initial;
+            }
+        </style>
+</head>
+<body ng-app="myApp" ng-controller="myCntrl">
+    <div>
+        <form name="main"  method="post" action="/validate_personal/{{edit}}" enctype="multipart/form-data">
+            <div class="div1" name="div1">
+                <div class="top-heading">Fill Your Details</div>
+                <div class="vehicle_details" style="display: none;">
+                    <label for="vehicle">Choose Vehicle type:</label>
+                    <select name="vehicle_type" id="vehicle_type">
+                        <option value="2">2 Wheeler</option>
+                        <option value="3">3 Wheeler</option>
+                        <option value="4">4 Wheeler</option>
+                        <option value=">6">Greater than 6 wheeler</option>
+                    </select>
+                    Enter the vehicle model name: <input type="text" placeholer="Model Name" name="model_name" id="model_name" ><br/>
+                    Enter the model manufactured year: <input type="text" placeholder="Manufactured Year" name="manufacture_year" id="manufacture_year" />
+                    <br><br>
+                </div>
+                <div class="owner_details">
+                    First Name: <input type="text" id="fname" name="fname" required><br>
+                    Last Name:<input type="text" id="lname" name="lname"><br>
+                    Email:<input type="email" id="email" name="email" required><br>
+                    Phone Number:<input type="text" id="phone" name="phone" ng-model="phone" ng-maxlength="10" ng-minlength="10" required><br/>
+                </div>
+                <!-- <p ng-show="main.phone.$error.maxlength || main.phone.$error.minlength" style="color:red"> Phone Number length must be 10</p> -->
+                <br>
+                Door NO:<input type="text" name="dno" id="dno" required>
+                City:<input type="text" name="city" id="city" required><br>
+                District:<input type="text" name="district" id="district" required>
+                State :<input type="text" name="state" id="state" required>
+                State Code:<input type="text" name="state_code" id="state_code" required>
+                Pincode :<input type="text" name="pincode" ng-model="pincode" id="pincode" ng-maxlength="6" ng-minlength="6" required><br>
+                <!-- <p ng-show="main.div1.pincode.$error.maxlength || main.div1.pincode.$error.minlength">Pincode length must be 6</p> -->
+                </div>
+                <div class="Documents">
+                    <label for="Documents">Choose the type of Document :</label>
+                    <select id="Documents" placeholder="select" id="proof" name="proof">
+                        <option disabled>select</option>
+                        <option value="aadhar">Aadhar card</option>
+                        <option value="pan">PAN card</option>
+                        <option value="voterid">Voter ID card</option>
+                        <option value="dl">Driving Licence</option>
+                    </select>
+                    Enter Document ID:<input type="text" placeholder="Document ID" id="document_id" name="document_id" required/><br>
+                    Upload the Document :<input type="file" value="Browse" name="file">
+                </div>
+            <button type="submit" ng-click="checked()" >SUBMIT</button>
+        </form>
+    </div>
+</body>
+</html>

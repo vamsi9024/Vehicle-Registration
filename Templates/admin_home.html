@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin_home.css">
+    <title>Document</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCntrl",function($scope){
+            $scope.logout()
+        });
+    </script>
+</head>
+<body>
+    <div class="home">
+        <h1>ADMIN PAGE</h1>
+        <div class="buttons">
+        <button><a href="/admin_approval">VEHICLE APPROVAL</a></button>
+        <button><a href="search">SEARCH FOR CUSTOMERS</a></button>
+        <button><a href="/delete_home_user">Delete the Vehicle details</a></button>
+        <button><a href="/edit_approval/02">EDIT DETAILS APPROVAL</a></button>
+        <button><a href="/AdminLogin">LOGOUT</a></button>
+        </div>
+    </div>
+</body>
+</html>

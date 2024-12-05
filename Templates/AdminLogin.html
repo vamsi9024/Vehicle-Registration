@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="static/AdminLogin.css">
+    <title>Admin Login</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCntrl",function($scope){
+            $scope.one=false;
+            
+            // $scope.check=function(){
+            //     if("{{one}}"=="true"){
+            //         alert(" not Sucess full")
+            //         $scope.one=true;
+            //     }
+            //     else{
+            //         alert("Succesfull")
+            //         $scope.one=false;
+            //     }
+            
+        });
+    </script>
+</head>
+<body>
+    <div class="main" ng-app="myApp" ng-controller="myCntrl">
+        <h1>Welcome Admin</h1>
+        <form method="post" action="/validate" name="admin">
+        <div class="div1">
+            <div class="div2">
+                <span>Admin ID</span>
+                <input type='text' placeholder='Enter Admin Id' name="admin_id" id="admin_id" ng-model="admin_id" ng-minlength="2" ng-maxlength="9"  required>
+                <span ng-show="admin.admin_id.$error.minlength">Minimum length must be 2</span>
+                <span ng-show="admin.admin_id.$error.maxlength">Maximum length must be 9</span>
+            </div>
+            <div class="div3">
+                <span>Admin Password</span>
+                <input type='text' placeholder='Enter Password'name="admin_password" id="admin_password" ng-model="admin_password" ng-minlength="2" ng-maxlength="9" required>
+                <span ng-show="admin.admin_password.$error.minlength">Minimum length must be 2</span>
+                <span ng-show="admin.admin_password.$error.maxlength">Maximum length must be 9</span>
+            </div>
+            <span ng-show="{{one}}" style="color:red"> Admin id is invalid</span>
+            <span ng-show="{{two}}">Password is incorrect</span>
+            <button type="submit" ng-disabled="admin.$invalid" ng-click="check()" >Login</button>
+           
+        </div>
+    </form>
+    </div>
+</body>
+</html>

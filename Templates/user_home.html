@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="static/user_home.css">
+    <title>Document</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCntrl",function($scope){
+        });
+    </script>    
+
+</head>
+<body ng-app="myApp" ng-controller="myCntrl">
+    <div class="container">
+    <h1>VEHICLE REGISTRATION</h1>
+   <button class="button1"> <a href="/personal_details">New Registration </a></button><br>
+    <button class="button1"><a href="/regrestration_status/{{login_user_id}}">Registration Status</a></button><br>
+    <button class="button1"><a href="/view_details/{{login_user_id}}/user">View Registration Details</a></button><br>
+    <button class="button1"><a href="/edit_details/{{login_user_id}}">Edit Registration Details</a></button><br>
+     <button class="button1"><a href='/other_vehicle_registration'>Register for other vehicle </a></button>
+    <button class="button1"><a href="/UserLogin">LOGOUT</a></button>
+
+    <div ng-show="{{status_div}}" id="status">
+        REGISTRATION STATUS
+        {% if not_status=="true12" %}
+            <p> data  is not present ,Please Select <span style="color:red">NEW REGISTRATION</span> Button</p>
+        {% elif not_status=="true" %}
+            <p>Registration Status :Pending</p>
+        {% else%}
+            <p>Registration Status :Completed</p>
+            <p>Registration Number :{{registration_no}}</p>
+        {% endif %}
+        <p></p>
+    </div>
+</div>
+</body>
+</html>

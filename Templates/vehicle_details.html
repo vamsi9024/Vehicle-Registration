@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="static\vehicle_details.css">
+    <title>Document</title>
+</head>
+<body>
+    <center><h2> VEHICLE DETAILS </h2></center>
+    <div class="vehicle_details">
+        
+    <form name="vehicle"  method="post" action="/vehicle_details" enctype="multipart/form-data">
+        <label for="vehicle">Choose Vehicle type:</label>
+        <select name="vehicle_type" id="vehicle_type">
+            <option value="2">2 Wheeler</option>
+            <option value="3">3 Wheeler</option>
+            <option value="4">4 Wheeler</option>
+            <option value=">6">Greater than 6 wheeler</option>
+        </select><br>
+        Enter the vehicle model name: <input type="text" placeholer="Model Name" name="model_name" id="model_name" ><br/>
+        Enter the model manufactured year: <input type="number" placeholder="Manufactured Year" name="manufacture_year" id="manufacture_year" range=""/><br>
+        Upload the vehicle Documents :<input type="file" value="Browse" name="file"><br>
+        <button type="submit">SUBMIT</button>
+    </form>
+    </div>
+</body>
+</html>

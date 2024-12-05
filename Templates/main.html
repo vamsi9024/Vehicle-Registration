@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User and Admin Cards</title>
+    <link rel="stylesheet" href="static\main.css">
+</head>
+<body>
+    <div class="top-heading">Vehicle Registration</div>
+    <div class="cards">
+        <div class="card admin" onclick="adminpage()">
+            <img src="static\images\manager.png" alt="Admin" />
+            <h2>Admin</h2>
+            <!-- <p>Admin description or role</p> -->
+        </div>
+        <div class="card user" onclick="userpage()">
+            <img src="static\images\avatar-design.png" alt="User" />
+            <h2>User</h2>
+            <!-- <p>User description or role</p> -->
+        </div>
+    </div>
+    <script>
+        function adminpage(){
+            window.location.href="/AdminLogin"
+        }
+        function userpage(){
+            window.location.href="/UserLogin"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin_approval.css">
+    <title>Document</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCntrl",function($scope){
+            
+
+        });
+        </script>
+</head>
+<body ng-app="myApp" ng-controller="myCntrl">
+    <h1>Vehicle Registration approval </h1>
+    <table border="1">
+        <tr>
+            <th>USER ID</th>
+            <th>NAME</th>
+            <th>VEHICLE TYPE</th>
+            <th>REGISTRAION STATUS</th>
+            <th>VEHICLE ID</th>
+            <th>VIEW DETAILS</th>
+        </tr>
+        {% for x in data %}
+        <tr>
+            <td>{{x[0]}}</td>
+            <td>{{x[1]}}</td>
+            <td>{{x[11]}} Wheeler</td>
+            <td>{{x[14]}}</td>
+            <td>{{x[15]}}</td>
+            <td><a href="/view_details/{{x[0]}}/{{x[15]}}_admin">MORE DETAILS</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

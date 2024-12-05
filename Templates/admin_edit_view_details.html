@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin_edit_view_details.css">
+    <title>Document</title>
+    <script>
+        function validate(btn){
+            var id=btn.id;
+            if(id=="accept"){
+                alert("updated Successfull")
+                window.location.href = '/update/accept'
+            }
+            else{
+                alert("Rejected Successful")
+                window.location.href = '/update/reject'
+            }
+        }
+        console.log('{{old_vehicle_detail}}');
+    </script>
+</head>
+<body>
+    <center>
+        <h1>APPROVAL EDIT DETAILS</h1>
+    <table border="1" style="border-collapse: collapse;">
+        <tr><td> User Name </td> <td>:{{new_detail[1]+" "+new_detail[2]}}</td></tr>
+        <tr><td>user ID :</td><td>{{new_detail[0]}}</td></tr>
+        <tr><td>Name :</td><td>{{new_detail[1]}} {{new_detail[2]}}</td></tr>
+        <tr><td>Email:</td><td>{{new_detail[3]}}</td></tr>
+        <tr><td>Phone Number:</td><td>{{new_detail[4]}}</td></tr>
+        <tr><td>Address:</td><td>{{new_detail[5]}},{{new_detail[6]}},{{new_detail[7]}},{{new_detail[8]}},{{new_detail[9]}},{{new_detail[10]}}</td></tr>
+        <tr><td colspan="2"><h4>Vehicle Details</h4></td></tr>
+        <tr><td>Vehicle Type:</td><td>{{old_vehicle_detail[1]}} Wheeler </td></tr>
+        <!-- <tr><td>Vehicle Model:</td><td>{{old_vehicle_detail[2]}}</td></tr>
+        <tr><td>Manufacture Year:</td><td>{{old_vehicle_detail[3]}}</td></tr> -->
+        <tr><td>Registration Number:</td><td>{{old_vehicle_detail[4]}}</td></tr>
+        <tr><td> User Documents :</td><td><a href="/download/{{new_detail[0]}}/edit">documents</a></td></tr>
+    </table>
+    <button id="accept" onclick="validate(this)">ACCEPT</button>    <button id="reject" onclick="validate(this)">REJECT</button>
+    </center>
+</body>
+</html>
