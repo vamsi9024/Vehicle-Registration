@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+}
+
+/* Style for the header */
+h1 {
+    color: #333; /* Dark gray color */
+}
+
+/* Style for the dropdown */
+#dropdown {
+    padding: 5px; /* Add padding to the dropdown */
+    font-size: 16px; /* Increase font size */
+}
+
+/* Style for the table */
+.details {
+    margin: 20px auto; /* Center the table */
+    border-collapse: collapse;
+    width: 80%; /* Set width of the table */
+}
+
+/* Style for table cells */
+.details td {
+    padding: 8px; /* Add padding to cells */
+    border: 1px solid #ddd; /* Add border to cells */
+}

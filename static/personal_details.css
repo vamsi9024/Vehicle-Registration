@@ -1,0 +1,97 @@
+/* personal_details.css */
+
+.div1 {
+    width: 50%;
+    margin: auto;
+}
+
+.vehicle_details, .owner_details, .Documents {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+}
+
+/* Styling for better visuality */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.Documents select,
+.Documents input[type="text"] {
+    width: calc(100% - 20px); /* Adjusting width to accommodate padding */
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+.Documents label {
+    font-weight: normal; /* Making label normal weight */
+}
+
+.Documents option[disabled] {
+    color: #999; /* Dimming the disabled option */
+}
+
+.Documents input[type="text"] {
+    width: calc(100% - 120px); /* Adjusting width for better alignment */
+}
+.top-heading{
+    margin-bottom: 40px;
+  text-align: center;
+  font-weight: bold;
+  padding: 20px 0;
+  background-color: #3498db;
+  color: #fff;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #2980b9;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 10px;
+}

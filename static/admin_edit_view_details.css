@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif; /* Use Arial font */
+    background-color: #f7f7f7; /* Light gray background color */
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add padding */
+}
+
+/* Styles for the center element */
+center {
+    display: block; /* Make it a block element */
+    margin: auto; /* Center align */
+    width: 80%; /* Set width */
+    max-width: 600px; /* Max width */
+}
+
+/* Styles for the header */
+h1 {
+    color: #333; /* Dark gray color */
+    text-align: center; /* Center align */
+}
+
+/* Styles for the table */
+table {
+    width: 100%; /* Take full width */
+    border-collapse: collapse; /* Collapse borders */
+    background-color: #fff; /* White background color */
+    border: 1px solid #ddd; /* Add border */
+    margin-bottom: 20px; /* Add space at the bottom */
+}
+
+/* Styles for table cells */
+td, th {
+    padding: 10px; /* Add padding */
+    border: 1px solid #ddd; /* Add border */
+}
+
+/* Styles for alternate rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background color */
+}
+
+/* Styles for buttons */
+button {
+    padding: 10px 20px; /* Add padding */
+    margin: 10px; /* Add margin */
+    cursor: pointer; /* Show pointer cursor */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+}
+
+/* Styles for button hover state */
+button:hover {
+    background-color: #0056b3; /* Darker blue background color */
+}
+
+/* Styles for links */
+a {
+    text-decoration: none; /* Remove underline */
+    color: #007bff; /* Blue color */
+}
+
+/* Styles for link hover state */
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #0056b3; /* Darker blue color */
+}

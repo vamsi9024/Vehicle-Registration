@@ -1,0 +1,65 @@
+/* admin_home.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.home {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 230px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+.buttons{
+    display:flex;
+    flex-direction: column;
+    margin-left: 30%;
+}
+.home{
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 50px;
+    width: 500px;
+    background-color: rgba(212, 212, 104, 0.628);
+    height: 530px;
+    border: 1px solid rgba(212, 212, 104, 0.628);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button{
+    background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  width: 230px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

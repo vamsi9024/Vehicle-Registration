@@ -1,0 +1,165 @@
+title{
+    display: none;
+}
+
+*{
+    align-items: center;
+    background: rgb(240, 229, 209);
+}
+
+.main{
+    width: 320px;
+    height: 380px;
+    background: rgb(255, 252, 246);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    border-radius: 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.main h1{
+    font-size: 18px;
+    background: none;
+    color: rgb(143, 56, 27);
+    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.div1{
+    background: rgb(255, 252, 246);
+}
+
+.div2{
+    background: none;
+}
+
+.div2 span{
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: none;
+    margin-left: 40px;
+}
+
+.div2 input{
+    width: 250px;
+    height: 25px;
+    margin-left: 30px;
+    outline: none;
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 5px;
+    font-size: 10px;
+    padding-left: 10px;
+    background: none;
+    margin-top: 5px;
+}
+
+.div3{
+    background: none;
+    margin-top: 10px;
+}
+
+.div3 span{
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: none;
+    margin-left: 40px;
+}
+
+.div3 input{
+    width: 250px;
+    height: 25px;
+    margin-left: 30px;
+    outline: none;
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 5px;
+    font-size: 10px;
+    padding-left: 10px;
+    background: none;
+    margin-top: 5px;
+}
+
+.div4{
+    background: none;
+    margin-top: 10px;
+}
+
+.div4 span{
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: none;
+    margin-left: 40px;
+}
+
+.div4 input{
+    width: 250px;
+    height: 25px;
+    margin-left: 30px;
+    outline: none;
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 5px;
+    font-size: 10px;
+    padding-left: 10px;
+    background: none;
+    margin-top: 5px;
+}
+
+.div5{
+    background: none;
+    margin-top: 10px;
+}
+
+.div5 span{
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: none;
+    margin-left: 40px;
+}
+
+.div5 input{
+    width: 250px;
+    height: 25px;
+    margin-left: 30px;
+    outline: none;
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 5px;
+    font-size: 10px;
+    padding-left: 10px;
+    background: none;
+    margin-top: 5px;
+}
+
+.div1 button{
+    background: none;
+    width: 150px;
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    border: none;
+    background-color: rgb(249, 89, 36);
+    color: rgb(255, 252, 246);
+    position: relative;
+    left: 85px;
+    top: 15px;
+    border-radius: 5px;
+}
+
+.div1 button:hover{
+    cursor: pointer;
+    background-color: rgb(174, 66, 31);
+}
+
+.div6{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(255, 252, 246);
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+.div6 span{
+    background: rgb(255, 252, 246);
+    color: red;
+    cursor: pointer;
+}
